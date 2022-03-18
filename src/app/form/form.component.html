@@ -1,0 +1,69 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Template Driven Contact Form</h3>
+            <form class="form" #contactForm='ngForm' (ngSubmit)='formSubmit(contactForm.value); contactForm.reset();'>
+                <div class="form-group mb-3">
+                    <input type="text" name="yourname" #yourname='ngModel' placeholder="enter your name" required class="form-control" [ngModel]='user.name'>
+                    <span class="error" *ngIf="yourname.touched && yourname.invalid">Please enter your name</span>
+                </div>
+                <div class="form-group mb-3">
+                    <input type="email" name="email" #email='ngModel' placeholder="enter your email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+                    required class="form-control" [ngModel]='user.email'>
+                    <span class="error" *ngIf="email.touched">
+                        <p *ngIf="email.errors?.required">Email is a required field!</p>
+                        <p *ngIf="email.errors?.pattern">This is not a valid Email!!!</p>
+                    </span>
+                </div>
+                <div class="form-group mb-3">
+                    <input type="text" name="mobile" #mobile='ngModel' minlength="10" maxlength="12" placeholder="enter your mobile" required class="form-control"  [ngModel]='user.mobile'>
+                    <span class="error" *ngIf="mobile.touched && mobile.invalid">Please enter your mobile</span>
+                </div>
+                <div class="form-group">
+                    <input type="Submit" name="Send" class="btn btn-success" [disabled]='contactForm.invalid'>
+                   
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Reactive Contact Form</h3>
+            <!-- (ngSubmit)='reactiveSubmit(reactiveForm.value)' -->
+            <form class="form" [formGroup]='reactiveForm' > 
+                <div class="form-group mb-3">
+                    <input type="text" formControlName="reactName" placeholder="Enter your name" required class="form-control">
+                    <!-- <div *ngIf="formGroup.get('reactName').invalid && 
+                            formGroup.get('reactName').errors && 
+                            (formGroup.get('reactName').dirty || formGroup.get('reactName').touched)">
+                        <small class="text-danger"
+                            *ngIf="formGroup.get('reactName').hasError('required')">
+                            This field is required.
+                        </small>
+                        <small class="text-danger"
+                            *ngIf="formGroup.get('reactName').hasError('minlength')">
+                            The minimum length for this field is {{formGroup.get('reactName').errors.minlength.requiredLength}} characters.
+                        </small>
+                        <small class="text-danger"
+                            *ngIf="formGroup.get('reactName').hasError('maxlength')">
+                            The maximum length for this field is {{formGroup.get('reactName').errors.maxlength.requiredLength}} characters.
+                        </small>
+                    </div> -->
+                </div>
+                <div class="form-group mb-3">
+                    <input type="email" formControlName="reactEmail" placeholder="Enter your email" required class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <input type="text" formControlName="reactMobile" placeholder="Enter your mobile" required class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <input type="Submit" name="submit" class="btn btn-primary" [disabled]="reactiveForm.invalid" (click)='reactiveSubmit()'>
+                    <a (click)='setData()' class="btn btn-primary" style="margin-left: 30px;">Set Value</a>
+                    <a (click)='resetData()' class="btn btn-primary" style="margin-left: 30px;">Reset</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

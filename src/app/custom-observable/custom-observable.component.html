@@ -1,0 +1,23 @@
+<h2>custom-observable works!</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 border-3">
+            <p>Example - 01 : Manual</p>
+            <ul [ngClass]="techStatus == 'completed' ? 'success': 'error'" class="tech-list" id="dataDisplay">
+            </ul>
+        </div>
+
+        <div class="col-sm-6">
+            <p>Example - 02 : Custom Interval</p>
+            <ul [ngClass]="techStatus1 == 'completed' ? 'success': 'error'" class="tech-list"  id="dataDisplay1">
+                
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <p [ngClass]="nameStatus == 'completed' ? 'badge-success':'badge-danger'">Random Name: {{names}}</p>
+            <div class="badge ">Success</div>
+        </div>
+    </div>
+</div>

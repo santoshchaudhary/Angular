@@ -1,0 +1,47 @@
+<h6>ng-if works!</h6>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <label for="">User Name</label>
+            <input type="text" class="form-control mt-2" (input)='onUpdateUser($event)' />
+            <input type="text" class="form-control mt-2" [(ngModel)]="userName">
+            <div>{{ userName }}</div>
+
+            <button class="btn btn-primary" [disabled]='!allowNewUser' (click)='changeUserCreatedStatus()'>Add user</button>
+
+            <div *ngIf="isUserCreated">User is created and user name is {{ userName }}</div>
+            <div *ngIf="!isUserCreated">No user is created</div>
+
+            <!-- *ngIf="isUserCreated; else noUser"
+            <ng-template #noUser>
+                <div>No user is created</div>
+            </ng-template> -->
+            
+        </div>
+    </div>
+
+    <!-- ngStyle -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="mt-2" 
+                [ngStyle]="{'background-color': getColor()}" 
+                [ngClass]="{offline: userStatus === 'offline'}"
+            >
+                {{'User'}} with ID {{ userId }} is {{ getUserStatus() }}
+            </div>
+
+            <div class="mt-2" [ngStyle]="{'background-color': getColor()}">
+                {{'User'}} with ID {{ userId }} is {{ getUserStatus() }}
+            </div>
+
+            <div class="mt-2" [ngStyle]="{'background-color': getColor()}">
+                {{'User'}} with ID {{ userId }} is {{ getUserStatus() }}
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>

@@ -1,0 +1,7 @@
+<h6>Parent B Component!</h6>
+<div>
+    <button (click)='userSignIn=true'>Sign In</button>
+    <button (click)='userSignIn=false'>Sign out</button>
+    {{userSignIn}}
+</div>
+<app-child-b [signIn] = 'userSignIn'></app-child-b>

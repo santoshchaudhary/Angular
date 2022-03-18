@@ -1,0 +1,22 @@
+<h3>Table Data coming through using Angular Services</h3>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>DOB</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students">
+            <td>{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.gender}}</td>
+            <td>{{student.dateOfBirth}}</td>
+            <td>{{student.address}}</td>
+        </tr>
+    </tbody>
+</table>
+

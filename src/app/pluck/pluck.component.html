@@ -1,0 +1,52 @@
+<p>pluck works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <p>Example 01 : Pluck Data</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Skills</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of dataDisplay">
+                        <td>{{item.name}}</td>
+                        <td>{{item.skills}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-sm-6">
+            <p>Example 02 : Pluck Data</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <!-- <th>Skills</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of dataDisplay2">
+                        <td>{{item}}</td>
+                        <!-- <td>{{item}}</td> -->
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <p>Data Coming here... <strong class="text-success">{{msg2}}</strong></p> -->
+        </div>
+    </div>
+
+
+    <div class="row mt-5">
+        <div class="col-sm-12">
+            <p>Example 03 : Map Object Data</p>
+            <ul id="mapData"></ul>
+            
+        </div>
+    </div>
+</div>

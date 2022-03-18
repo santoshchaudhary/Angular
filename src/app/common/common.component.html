@@ -1,0 +1,248 @@
+<h3>Common Features</h3>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <h4>ng-content</h4>
+        <div class="col-sm-4">
+            <app-ng-content>
+                <h5 class="card-title">Mobile</h5>
+                <a href="#" class="btn btn-primary">Know more about mobile...</a>
+            </app-ng-content>
+        </div>
+        <div class="col-sm-4">
+            <app-ng-content>
+                <h5 class="card-title">TV</h5>
+                <a href="#" class="btn btn-primary">Know more about TV...</a>
+            </app-ng-content>
+        </div>
+        <div class="col-sm-4">
+            <app-ng-content>
+                <h5 class="card-title">Laptop</h5>
+                <a href="#" class="btn btn-primary">Know more about Laptop...</a>
+            </app-ng-content>
+        </div>
+    </div>
+    <!-- @HostBinding() & @HostListener() Decorator  -->
+    <div class="row gap">
+        <h4>@HostBinding() & @HostListener() Decorator</h4>
+        <div class="col-sm-12">
+            <p appCommon>This is a paragraph</p>
+        </div>
+    </div>
+
+    <!-- ViewChild using Component, Directive and Template -->
+    <div class="row gap">
+        <h4>ViewChild using Component, Directive and Template</h4>
+        <div class="col-sm-12">
+            <button (click)='increment()'>Increment Salary</button>
+            <button (click)='decrement()'>Decrement Salary</button>
+            <app-salary></app-salary>
+
+            <!-- view child using directive -->
+            <div appCommon>@viewchild using directive</div>
+            <input type="text" name="useerName" #userNameFocus>
+
+            <!-- view child using template -->
+            <div #customTitle>@viewchild using template</div>
+
+
+        </div>
+
+
+
+    </div>
+    <!-- Property Binding Vs Interpolation -->
+    <div class="row gap">
+        <h4>Property Binding Vs Interpolation</h4>
+        <div class="col-sm-12">
+            <input type="text" [disabled]='isDisabled' value="{{yourName}}">
+            <input type="text" disabled='{{isDisabled}}' value="{{yourName}}">
+            <button (click)='editDisabled()'>Edit Disabled input field</button>
+        </div>
+    </div>
+
+    <!-- TrackBy With ngFor Directives -->
+    <div class="row gap">
+        <h4>TrackBy With ngFor Directives</h4>
+        <div class="col-sm-12">
+            <!-- Example 01 -->
+            <ng-container *ngFor="let data of displayData">
+                <button>{{data}}</button>
+              </ng-container>
+              
+              <div>
+                <button (click)="showMore()">Show More</button>
+              </div>
+            <!-- Example 02 -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                        <th>Salary</th>
+                        <th>Qualification</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of employee; let i = index; trackBy:employeeTrackBy">
+                        <td>{{i+1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.age}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.salary}}</td>
+                        <td>
+                            <ul *ngFor="let degree of item.qualification">
+                                <li>{{degree}}</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button (click)="loadMoreEmployee()">Load more Employee</button>
+        </div>
+    </div>
+
+    <!-- Logical operator in ngIf condition -->
+    <div class="row gap">
+        <h4>Logical operator in ngIf condition</h4>
+        <div class="col-sm-12">
+            <div *ngIf="isLoggedIn then loginBlock else logoutBlock"></div>
+            <ng-template #loginBlock><h2>Please login!</h2></ng-template>
+            <ng-template #logoutBlock><h2>Welcome Back!</h2></ng-template>
+            
+        </div>
+        <div class="col-sm-12">
+            <div *ngIf="isLoggedIn && userName=='admin' else notLoggedIn">
+                <p>User Logged iN with && operator</p>
+            </div>
+            <div *ngIf="isLoggedIn || userName=='admin' else notLoggedIn">
+                <p>User Logged iN with OR operator</p>
+            </div>
+            <ng-template #notLoggedIn>
+                <p>User not Logged iN!</p>
+            </ng-template>
+
+            <div *ngIf="score >= 75">
+                <p>You have scored 75%</p>
+            </div>
+            <div *ngIf="score <= 60">
+                <p>You have scored 60%</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ng-switch -->
+    <div class="row gap">
+        <h4>ng-switch</h4>
+        <div class="col-sm-12">
+            <select name="" id="" (change)='selectColor($event)'>
+                <option value="">Select Color</option>
+                <option value="red">Red</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+            </select>
+
+            <div  [ngSwitch]="choice">
+                <h5 *ngSwitchCase="'red'" style="color: red;">
+                    Red Color Selected
+                </h5>
+                <h5 *ngSwitchCase="'yellow'" style="color: yellow;">
+                    Yellow Color Selected
+                </h5>
+                <h5 *ngSwitchCase="'green'" style="color: green;">
+                    Green Color Selected
+                </h5>
+                <h5 *ngSwitchCase="'blue'" style="color: blue;">
+                    Blue Color Selected
+                </h5>
+                <h5 *ngSwitchDefault>
+                    No Color Selected!
+                </h5>
+            </div>
+        </div>
+    </div>
+
+    <!-- Array sorting -->
+    <div class="row gap">
+        <h4>Array sorting</h4>
+        <div class="col-sm-12">
+            <p #ace></p>
+            <p #dce></p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</div>
+
+<!-- Array sorting  -->
+
+
+<!-- Value match with : Array and Input -->
+<h4>Value match with : Array and Input</h4>
+<div class="gap">
+    Enter city name: <input type="text" [(ngModel)]="cityName" (change)="getInputValue();" />
+</div>
+
+<!-- Event Binding -->
+<h4>Event Binding</h4>
+<div class="gap">
+    <button (click)='onClick()'>Click</button>
+    {{message}}
+</div>
+
+
+<!-- Two way data Binding -->
+<h4>Two way data Binding</h4>
+<div class="gap">
+    <input type="text" [(ngModel)]="name">
+    {{name}}
+</div>
+
+<!-- Structural Directives - ngFor -->
+<h4>Structural Directives : ngFor</h4>
+<div *ngFor="let item of nameArray; index as i">
+   {{i}} {{item}}
+</div>
+
+<!-- Structural Directives - ngSwitch -->
+<h4>Structural Directives : ngSwitch</h4>
+<div [ngSwitch]="fruit">
+    <p *ngSwitchCase="'orange'">
+        You like orange fruit!
+    </p>
+    <p *ngSwitchCase="'apple'">
+        You like Apple fruit!
+    </p>
+    <p *ngSwitchDefault>
+        You like all fruits!
+    </p>
+</div>
+
+<!-- Structural Directives - ngIf -->
+<h4>Structural Directives : ngIf</h4>
+<button (click)='ToggleSwitch()'>Bulb</button>
+<div *ngIf="switch;then switchOn else switchOff"></div>
+<ng-template #switchOn>
+    Bulb is switched on!
+</ng-template>
+<ng-template #switchOff>
+    Bulb is switched off!
+</ng-template>
+
+
+
+<!-- Angular Lifecycle Hooks -->
+<div class="gap">
+    <!-- <input type="text" [(ngModel)]='userText'>
+    <app-hooks [simpleInput]='userText'></app-hooks> -->
+</div>

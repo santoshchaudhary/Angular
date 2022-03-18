@@ -1,0 +1,35 @@
+<h5>Replay Subject in Rxjs</h5>
+<div class="container-fluid">
+    <div class="row">
+        <h6>Add Videos</h6>
+        <div class="col-sm-4">
+            <input type="text" class="form-control">
+            <button class="btn btn-success">Add Video</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <p>User 01</p>
+            <ul *ngFor="let item of user1">
+                <li><strong>Video: </strong>{{item}}</li>
+            </ul>
+        </div>
+
+        <div class="col-sm-4">
+            <p>User 02</p>
+            <ul *ngFor="let item of user2">
+                <li><strong>Video: </strong>{{item}}</li>
+            </ul>
+            <button class="btn btn-primary">Subscribe</button>
+        </div>
+
+        <div class="col-sm-4">
+            <p>User 03</p>
+            <ul *ngFor="let item of user3">
+                <li><strong>Video: </strong>{{item}}</li>
+            </ul>
+            <button class="btn btn-danger">Unsubscribe</button>
+        </div>
+    </div>
+</div>

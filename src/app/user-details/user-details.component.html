@@ -1,0 +1,28 @@
+
+<h3>Table Data coming through using Angular Services Http</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>User Name</th>
+            <th>Website</th>
+            <th>Company</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userDetails$ | async">
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.website}}</td>
+            <td>{{user.company.name}}</td>
+            <td>{{user.address.city}}</td>
+            
+        </tr>
+    </tbody>
+</table>
+

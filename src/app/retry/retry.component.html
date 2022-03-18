@@ -1,0 +1,40 @@
+<h5>Retry, retryWhen Scan, Delay</h5>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>User Name</th>
+                        <th>Phone</th>
+                        <th>Website</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let person of data">
+                        <td>{{person.name}}</td>
+                        <td>{{person.email}}</td>
+                        <td>{{person.username}}</td>
+                        <td>{{person.phone}}</td>
+                        <td>{{person.website}}</td>
+                        <td>{{person.address.city}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-primary" type="button" (click)='fetchData()' style="width: 300px;">
+                <span *ngIf="fetching" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                {{fetching ? 'Fetching...' : 'Fetch Detials'}}
+            </button>
+            <p>Status : <strong [ngClass]="{
+                'text-success': status == 'Data Fetched',
+                'text-danger': status == 'Problem Fetching Data'
+            }">{{status}}</strong></p>
+        </div>
+        
+
+        <!-- <button class="btn btn-primary" >Fetch Details</button> -->
+    </div>
+</div>
