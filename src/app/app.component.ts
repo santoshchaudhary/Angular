@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, ElementRef, HostBinding, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { filter } from 'rxjs/operators';
 import { CommonService } from './subject/common.service';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +8,21 @@ import { CommonService } from './subject/common.service';
 })
 export class AppComponent implements AfterViewInit, OnInit {
 
-  exclusive:boolean = false;
+  adminRole: boolean = true;
+  ifRoleDefine: boolean = true;
+  exclusive: boolean = false;
+  users: any;
+  memberData = [
+    { name: 'sam', email: 'sam@gmail.com' },
+    { name: 'jhon', email: 'jhon@gmail.com' },
+  
+  ]
+
+
+
+
+
+
   public name = 'How are you';
   public hello:any;
   public city:any;
@@ -30,8 +43,8 @@ export class AppComponent implements AfterViewInit, OnInit {
   }
   
 
-  constructor(private element: ElementRef, private _subject: CommonService) {
-    
+  constructor(private element: ElementRef, private _subject: CommonService, private userData: CommonService) {
+    this.users = userData.users();
   }
 
   ngOnInit(): void {

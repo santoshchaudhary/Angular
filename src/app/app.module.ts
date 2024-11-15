@@ -58,6 +58,8 @@ import { LifeCycleFormComponent } from './components/life-cycle/life-cycle-form/
 import { DoCheckComponent } from './components/life-cycle/do-check/do-check.component';
 import { CustomDirectiveComponent } from './components/custom-directive/custom-directive.component';
 import { CustomDirective } from './components/custom-directive/custom.directive';
+import { FooterComponent } from './footer/footer.component';
+import { RectiveFormComponent } from './rective-form/rective-form.component';
 
 
 
@@ -116,7 +118,9 @@ import { CustomDirective } from './components/custom-directive/custom.directive'
     LifeCycleFormComponent,
     DoCheckComponent,
     CustomDirectiveComponent,
-    CustomDirective
+    CustomDirective,
+    FooterComponent,
+    RectiveFormComponent
   ],
   imports: [
     BrowserModule,

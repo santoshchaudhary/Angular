@@ -1,7 +1,21 @@
+
+
+<div class="container">
+    <!-- single slot -->
+    <ng-content></ng-content>
+    <!-- multi slot -->
+    <ng-content select="[role]"></ng-content>
+    <!-- conditional slot -->
+     
+</div>
+
+
+
+
 <div class="card">
     <div class="card-body">
         <ng-content select='.card-title'></ng-content>
-        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, iusto?</p>
+        <!-- <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, iusto?</p> -->
         <ng-content select='.btn'></ng-content>
     </div>
 </div>

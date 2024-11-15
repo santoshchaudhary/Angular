@@ -10,4 +10,12 @@ export class CommonService {
   // userName = new Subject<string>(); // Through Subject method
 
   constructor() { }
+
+  users() {
+    return [
+      { name: 'sam', email: 'sam@gmail.com' },
+      { name: 'jhon', email: 'jhon@gmail.com' },
+    
+    ]
+  }
 }

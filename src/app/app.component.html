@@ -1,4 +1,71 @@
-<div class="container-fluid p-3">
+
+<h4>Services display</h4>
+<ul>
+    <li *ngFor="let data of users">
+        {{data.name}}
+    </li>
+</ul>
+<app-footer> </app-footer>
+<hr>
+
+<h4>Reactive form display</h4>
+   <app-rective-form></app-rective-form>
+<hr>
+
+
+
+<h4>Ng-container and ng-template display</h4>
+<ng-container *ngIf="ifRoleDefine">
+    <div *ngIf="adminRole; else notAdmin">
+        <p>Hello, you are on admin role!</p>
+    </div>
+
+    <ng-template #notAdmin>
+        user is not an Admin
+    </ng-template>
+</ng-container>
+<hr>
+
+
+<h6>Ng-Content display</h6>
+<app-ng-content>
+    This content from app component
+    <p role>This is selected content for role</p>
+</app-ng-content>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid p-3 d-none">
     <div class="row">
         <div class="col-sm-3">
             <strong class="text-success" *ngIf="exclusive">Exclusive*</strong>
@@ -17,7 +84,7 @@
 
 
 
-<div class="container-fluid" style="margin-top: 100px;">
+<div class="container-fluid d-none" style="margin-top: 100px;">
     <div class="row">
         <div class="col-sm-12">
             <ng-container>
@@ -29,14 +96,10 @@
             
             
             
-            <input type="text" [(ngModel)]="hello">
-            {{hello}}
-            
+            <!-- <input type="text" [(ngModel)]="hello">
+            {{hello}}            
             <input type="text" [(ngModel)]="city" (change)='getValue()'>
-
-            
-            
-            <h1>Hello {{name}}</h1>
+            <h1>Hello {{name}}</h1> -->
         </div>
     </div>
 </div>
